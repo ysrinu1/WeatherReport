@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Updated bootstrap to 5.2.3's version, from what we initially used in class (4.3.1)-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- Added a sun icon for fun :) -->
+    <title>☀️ Weather Dashboard</title>
+</head>
+
+<body>
+    <header>
+        <!-- Ccreated a CSS JUST for the header, since the one in the example was a transitional color -->
+        <h1>Weather Dashboard</h1>
+    </header>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Designates the search section of the page -->
+            <div class="col-lg-3 bg-light">
+                <h6 class="mt-5">Enter City Name to Search:</h6>
+                <div class="input-group mb-3">
+                    <input id="cityEntry" type="text" class="form-control" placeholder="ex: Milwaukee" aria-label="Enter a city">
+                    <div class="input-group-append">
+                        <!-- This is the search button (magnifying glass) -->
+                        <button class="btn btn-primary" type="button" id="searchButton">
+                            <!-- This is the styling of the search button, to be a magnifying glass (I like this a bit better than a standard button) -->
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+                <!-- This is the "Clear Search History" button.  I added downward-pointing arrows within the button because I prefer it's "pointed" purpose -->
+                <button class="btn btn-block btn-danger mb-1" type="button" id="clearSearchHistory">▼ Clear Search History ▼</button>
+                <!-- This lists the search history, below the "Clear Search History" button -->
+                <form id="history"></form>
+            </div>
+            <!-- This is the area containing the resulting weather information (following a successful search) -->
+            <div class="col-lg-9">
+                <div class="row mr-0">
+                    <div class="col-lg-11 card m-0 d-none bg-light" id="currentWeather">
+                        <!-- This represents the area that displays the current day's weather information -->
+                        <div class="card-body">
+                            <h3 id="nameOfCity" class="city-name align-middle"></h3>
+                            <img id="weatherIcon" alt="">
+                            <p id="temp"></p>
+                            <p id="humidity"></p>
+                            <p id="wind"></p>
+                        </div>
+                    </div>
+                </div>
+                <br></br>
+                <!-- This is the header for the 5-day forecast -->
+                <div class="row d-none" id="forecastHeader">
+                    <div class="col-12">
+                        <h3>5-Day Forecast:</h3>
+                    </div>
+                </div>
+                <!-- This is the row, containing the 5 days of weather forecast -->
+                <div class="row">
+                    <div class="col-md-2 forecast bg-dark text-white m-3"></div>
+                    <div class="col-md-2 forecast bg-dark text-white m-3"></div>
+                    <div class="col-md-2 forecast bg-dark text-white m-3"></div>
+                    <div class="col-md-2 forecast bg-dark text-white m-3"></div>
+                    <div class="col-md-2 forecast bg-dark text-white m-3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- Link to the javascript file -->
+    <script src="./assets/script.js"></script>
+</body>
+
+</html>
